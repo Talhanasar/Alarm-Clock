@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="form">
+        <h1 id="txt-1">Set an alarm</h1>
+        <p id="err">Invalid input</p>
+        <div class="input">
+            <label for="time">Enter the time for alarm</label>
+            <input type="time" id="time" required>
+        </div>
+        <button class="btn">Set</button>
+    </div>
+    <div class="time">
+        <h1 id="txt-2">Now the time is </h1>
+        <div class="watch">
+            <div class="hour">7</div>
+            <div class="dot">:</div>
+            <div class="min">13</div>
+            <div class="dot">:</div>
+            <div class="sec"></div>
+            <div class="ampm">AM</div>
+        </div>
+        <div class="remain">
+            <p id="txt">Time remaining for alarm to ring :</p>
+            <div class="time-left">
+                <div class="hour hr-remain">7</div>
+                <div class="hr-txt">hr</div>
+                <div class="min min-remain">13</div>
+                <div class="min-txt">min</div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
