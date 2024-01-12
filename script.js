@@ -7,7 +7,7 @@ let ampm = document.querySelector('.ampm');
 let time_box = document.querySelector('.time');
 let timer = document.querySelector('.form');
 let err = document.getElementById('err');
-let alarm = new Audio("alarm.wav");
+let alarm = new Audio("alarm.mp3");
 let hr_remain = document.querySelector('.hr-remain');
 let min_remain = document.querySelector('.min-remain');
 
