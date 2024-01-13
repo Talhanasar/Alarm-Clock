@@ -11,38 +11,7 @@ body{
     align-items: center;
     background: #d33c3c;
     color: white;
-}
-.form
-{
-    display: flex;
-    flex-direction: column;   
-    align-items: center;
-    justify-content: center;
-    /* display: none; */
-    border-radius: 47px;
-    background: #d33c3c;
-    box-shadow:  27px 27px 54px #9c2c2c,
-             -27px -27px 54px #ff4c4c;
-    height: 25rem;
-    width: 25rem;
-    font-family: 'Forum', serif;
-}
-.btn{
-    padding: 5px 8px;
-    margin: 15px 0;
-    border-radius: 40px;
-    background: #d33c3c;
-    box-shadow:  13px 13px 26px #9c2c2c,
-                 -13px -13px 26px #ff4c4c;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-.btn:hover{
-    border-radius: 40px;
-    background: #d33c3c;
-    box-shadow: inset 13px 13px 26px #9c2c2c,
-            inset -13px -13px 26px #ff4c4c;
+    position: relative;
 }
 .form p{
     margin-bottom: 10px;
@@ -53,10 +22,16 @@ body{
 #txt-1{
     margin-bottom: 20px;
 }
-.time{display: none;}
+.time{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .watch{
     height: 10rem;
-    width: 33rem;
+    width: 26rem;
+    padding: 15px;
+    padding-left: 20px;
     border-radius: 58px;
     background: #d33c3c;
     box-shadow: inset 21px 21px 45px #942a2a,
@@ -73,7 +48,7 @@ body{
     margin: 10px 2px;
     font-family: 'Forum', serif;
 }
-.hour , .min,.sec{
+.full-time{
     height: 6rem;
     width: max-content;
     font-family: 'DS-Digital';
@@ -82,13 +57,6 @@ body{
     align-items: center;
     justify-content: flex-end;
     font-size: 6rem;
-}
-.dot{
-    font-size: 6rem;
-    width: 4rem;
-    display: flex;
-    align-items:center ;
-    justify-content: center;
 }
 .ampm{
     height: 4.6rem;
@@ -106,6 +74,9 @@ body{
     font-size: 2rem;
     height: 3rem;
     margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .hr-txt,.min-txt{
     padding: 0 5px;
@@ -113,3 +84,108 @@ body{
     display: flex;
     align-items: end;
 }
+
+/* alarm button  */
+.btn{
+    display: flex;
+    align-items: center;
+}
+#txt-alarm{
+    font-size: 1.8rem;
+    padding: 0 12px;
+    font-family: 'Forum', serif;
+}
+  .label-btn{
+    height: 30px;
+    width: 70px;
+    position: relative;
+    border-radius: 68px;
+    background: #d33c3c;
+    box-shadow: inset 18px 18px 36px #8d2828,
+                inset -18px -18px 36px #ff5050;
+    display: inline-block;
+    transition: all .3s linear;
+    cursor: pointer;
+  }
+  #check{display: none;}
+  .circle{
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #d33c3c;
+    box-shadow:  13px 13px 26px #8d2828,
+                 -13px -13px 26px #ff5050;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    transition: all .3s linear;
+  }
+  #check:checked + .label-btn .circle{
+    transform:translateX(39px);
+    border-radius: 100px;
+    background: #d33c3c;
+    box-shadow:  13px 13px 26px #8d2828,
+                          -13px -13px 26px #ff5050;
+  }
+  
+  #check:checked + .label-btn{
+    border-radius: 68px;
+    background: #6df263;
+    box-shadow: inset 20px 20px 40px #49a242,
+                            inset -20px -20px 40px #91ff84;
+  }
+  .txt-on{
+    position: absolute;
+    left: 11px;
+    top: 23%;
+    display: none;
+    transition: all .3s linear;
+  }
+  #check:checked + .label-btn .txt-on{display: inline;}
+  .txt-off{
+    position: absolute;
+    right: 5px;
+    top: 23%;
+    color: white;
+    transition: all .3s linear;
+  }
+  #check:checked + .label-btn .txt-off{display: none;}
+
+  /* input box  */
+  .blur{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34,34,34,0.4);
+    display: none;
+  }
+  .box{
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    height: 10rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+  }
+  select{margin: 0 4px;}
+  #btn{
+    padding: 3px 5px;
+    border-radius: 6px;
+  }
+  #btn:hover{ box-shadow: 1px 1px 4px;}
+  #err{
+    color: red;
+    text-align: center;
+    display: none;
+  }

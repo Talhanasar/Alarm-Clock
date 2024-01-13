@@ -9,36 +9,51 @@
 </head>
 
 <body>
-
-    <div class="form">
-        <h1 id="txt-1">Set an alarm</h1>
-        <p id="err">Invalid input</p>
-        <div class="input">
-            <label for="time">Enter the time for alarm</label>
-            <input type="time" id="time" required>
-        </div>
-        <button class="btn">Set</button>
-    </div>
     <div class="time">
         <h1 id="txt-2">Now the time is </h1>
         <div class="watch">
-            <div class="hour">7</div>
-            <div class="dot">:</div>
-            <div class="min">13</div>
-            <div class="dot">:</div>
-            <div class="sec"></div>
+            <div class="full-time">00</div>
             <div class="ampm">AM</div>
         </div>
         <div class="remain">
             <p id="txt">Time remaining for alarm to ring :</p>
             <div class="time-left">
-                <div class="hour hr-remain">7</div>
+                <div class="hour hr-remain">0</div>
                 <div class="hr-txt">hr</div>
-                <div class="min min-remain">13</div>
+                <div class="min min-remain">00</div>
                 <div class="min-txt">min</div>
             </div>
         </div>
-
+        
+        <div class="btn">
+            <p id="txt-alarm">Alarm:</p>
+            <input type="checkbox" id="check">
+            <label for="check" class="label-btn">
+                <p class="txt-on">ON</p>
+                <p class="txt-off">OFF</p>
+                <span class="circle">
+                </span>
+            </label>
+        </div>
+    </div>
+    <div class="blur">
+        <div class="box">
+            <p id="err">You have entered a passed time or didn't put anything</p>
+            <div class="values">
+                <select>
+                    <option value="hour" selected hidden disabled>
+                        hour
+                    </option>
+                </select>
+                <select>
+                    <option value="minute" selected hidden disabled>minute</option>
+                </select>
+                <select>
+                    <option value="AM/PM" selected hidden disabled>AM/PM</option>
+                </select>
+            </div>
+            <button id="btn">Set</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
