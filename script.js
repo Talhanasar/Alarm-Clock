@@ -11,10 +11,18 @@ let selectData = document.getElementsByTagName('select');
 let hr, min, time, hr_, min_, ampm_;
 let on = false;
 
+function viewport() {
+    document.documentElement.style.setProperty('--viewport-height', window.innerHeight + 'px');
+}
+console.log(window.innerHeight);
+viewport();
+// Update height on window resize
+window.addEventListener('resize', viewport);
+
 alarm_btn.addEventListener('change', () => {
     if (alarm_btn.checked) {
         timer.style.display = 'block';
-    }else{
+    } else {
         alarm.pause();
         alarm.currentTime = 0;
         on = false;
@@ -62,7 +70,6 @@ for (let index = 0; index < 2; index++) {
 }
 
 function time_remain(user_H, user_M, H, M) {
-    console.log(user_H, user_M, H, M);
     if (user_H != null || user_M != null) {
         hr_remain.innerHTML = (user_H - H);
         min_remain.innerHTML = (user_M - M);
@@ -70,21 +77,28 @@ function time_remain(user_H, user_M, H, M) {
 }
 setInterval(() => {
     let a = new Date();
-    time = a.toLocaleTimeString();
+    // time = a.toLocaleTimeString();
     hr_ = a.getHours();
     min_ = a.getMinutes();
+    let sec_ = a.getSeconds();
+    ampn_ = "AM"
     if (hr_ > 12) {
         hr_ = hr_ - 12
+        ampm_ = "PM"
+    } else if (hr_ == 12 && min_ > 0) {
+        ampm_ = "PM"
     }
     if (hr_ < 10) {
         hr_ = `0${hr_}`;
     }
+    if (min_ < 10) {
+        min_ = `0${min_}`
+    }
 
-    full_time.innerHTML = time.slice(0, time.length - 2);
-    ampm.innerHTML = time.slice(time.length - 2, time.length);
-    ampm_ = time.slice(time.length - 2, time.length);
+    full_time.innerHTML = `${hr_}:${min_}:${sec_}`;
+    ampm.innerHTML = ampm_;
     time_remain(hr, min, hr_, min_);
-    if (hr==hr_ && min == min_ && on==true) {
+    if (hr == hr_ && min == min_ && on == true) {
         alarm.play();
     }
 
